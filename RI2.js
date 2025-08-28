@@ -1,3 +1,4 @@
+// Objeto TelefoneCelular
 function TelefoneCelular(ddd, numero) {
     this._ddd = ddd;
     this._numero = numero;
@@ -27,6 +28,7 @@ function TelefoneCelular(ddd, numero) {
     });
 }
 
+//Objeto Endereço
 function Endereco(estado, cidade, rua, numero) {
     this._estado = estado;
     this._cidade = cidade;
@@ -90,6 +92,7 @@ function Endereco(estado, cidade, rua, numero) {
     });
 }
 
+// Objeto Cliente
 function Cliente(nome, telefone, email, endereco) {
     this._nome = nome;
     this._telefone = telefone;
@@ -151,14 +154,24 @@ function Cliente(nome, telefone, email, endereco) {
     });
 }
 
+
+// Teste de criação de objetos
 let telefone = new TelefoneCelular('11', '99999-9999');
 let endereco = new Endereco('SP', 'São Paulo', 'Rua A', 123);
 let cliente = new Cliente('João', telefone, 'teste@teste.com', endereco);
-// console.log(cliente.info);
-// console.log(telefone.info);
-// console.log(endereco.info);
+console.log('\n\nIMPRESSÃO DE OBJETOS INDIVIDUAIS\n\n')
+console.log(telefone.info);
+console.log('\n')
+console.log(endereco.info);
+console.log('\n')
+console.log(cliente.info);
+console.log('\n')
+
+
+console.log('\n\nIMPRESSÃO COMPLETA DA DESCRIÇÃO\n\n')
 console.log(cliente.descricao);
 
+// função pra ordenar o array de clientes
 function ordenaClientes(ArrayClientes) {
     return ArrayClientes.sort((a, b) => {
         if (a.nome < b.nome) {
@@ -171,9 +184,15 @@ function ordenaClientes(ArrayClientes) {
     });
 }
 
-let cliente2 = new Cliente('Ximbinha', telefone, 'teste@teste', endereco);
-let cliente3 = new Cliente('Carlos', telefone, 'teste@teste', endereco);
-let clientes = [cliente, cliente2, cliente3];
-for (let c of ordenaClientes(clientes)) {
-    console.log(c.descricao);
+// Ordenar array de clientes
+
+let cliente1 = new Cliente('Josefina', new TelefoneCelular(12, '98888-8888'), 'josefina@teste', endereco);
+let cliente2 = new Cliente('Ximbinha', new TelefoneCelular(11, '97777-7575'), 'ximbinha@teste', endereco);
+let cliente3 = new Cliente('Abdulah', new TelefoneCelular(35, '98765-4321'), 'abdulah@teste', endereco);
+let clientes = [cliente1, cliente2, cliente3];
+
+console.log('\n\nIMPRESSÃO DOS CLIENTES ORDENADOS\n\n')
+for (let client of ordenaClientes(clientes)) {
+    console.log(client.descricao);
+    console.log('\n');
 }
