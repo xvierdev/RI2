@@ -158,3 +158,22 @@ let cliente = new Cliente('João', telefone, 'teste@teste.com', endereco);
 // console.log(telefone.info);
 // console.log(endereco.info);
 console.log(cliente.descricao);
+
+function ordenaClientes(ArrayClientes) {
+    return ArrayClientes.sort((a, b) => {
+        if (a.nome < b.nome) {
+            return -1;
+        }
+        if (a.nome > b.nome) {
+            return 1;
+        }
+        return 0;
+    });
+}
+
+let cliente2 = new Cliente('Ximbinha', telefone, 'teste@teste', endereco);
+let cliente3 = new Cliente('Carlos', telefone, 'teste@teste', endereco);
+let clientes = [cliente, cliente2, cliente3];
+for (let c of ordenaClientes(clientes)) {
+    console.log(c.descricao);
+}
